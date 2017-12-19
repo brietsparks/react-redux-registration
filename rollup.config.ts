@@ -8,9 +8,9 @@ const pkg = require('./package.json')
 const libraryName = 'react-redux-registration'
 
 export default {
-  input: `compiled/${libraryName}.js`,
+  input: `compiled/react-redux-registration.js`,
   output: [
-    { file: pkg.main, name: camelCase(libraryName), format: 'umd' },
+    { file: pkg.main, name: libraryName, format: 'umd' },
     { file: pkg.module, format: 'es' },
   ],
   sourcemap: true,
