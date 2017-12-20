@@ -1,4 +1,4 @@
-export type Action = { type: string; payload: any }
+export type Action = { type: string; payload?: any }
 
 export interface FieldAvailabilityState {
   userExistsByEmail: String | undefined
