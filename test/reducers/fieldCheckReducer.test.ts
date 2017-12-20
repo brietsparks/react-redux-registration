@@ -10,6 +10,9 @@ import {
   SEND_VERIFICATION_CODE,
   VERIFICATION_CODE_SENT,
   VERIFICATION_CODE_NOT_SENT,
+  CHECK_VERIFICATION_CODE,
+  VERIFICATION_CODE_MATCHES,
+  VERIFICATION_CODE_MISMATCH,
   CHECK_USER_EXISTS_BY_USERNAME,
   USER_EXISTS_BY_USERNAME,
   USER_DNE_BY_USERNAME
@@ -75,6 +78,27 @@ describe('fieldCheckReduce', () => {
       { type: VERIFICATION_CODE_NOT_SENT }
     )
     expect(newState.sendingVerificationCode).toEqual(false)
+  })
+
+  it(`handles action ${CHECK_VERIFICATION_CODE}`, () => {
+    const newState = fieldCheckReducer(undefined, { type: CHECK_VERIFICATION_CODE })
+    expect(newState.checkingVerificationCode).toEqual(true)
+  })
+
+  it(`handles action ${VERIFICATION_CODE_MATCHES}`, () => {
+    const newState = fieldCheckReducer(
+      { checkingVerificationCode: true },
+      { type: VERIFICATION_CODE_MATCHES }
+    )
+    expect(newState.checkingVerificationCode).toEqual(false)
+  })
+
+  it(`handles action ${VERIFICATION_CODE_MISMATCH}`, () => {
+    const newState = fieldCheckReducer(
+      { checkingVerificationCode: true },
+      { type: VERIFICATION_CODE_MISMATCH }
+    )
+    expect(newState.checkingVerificationCode).toEqual(false)
   })
 
   it(`handles action ${CHECK_USER_EXISTS_BY_USERNAME}`, () => {

@@ -6,8 +6,8 @@ import {
   EMAIL_DNE,
   VERIFICATION_CODE_SENT,
   VERIFICATION_CODE_NOT_SENT,
-  EMAIL_VERIFIED,
-  EMAIL_NOT_VERIFIED,
+  VERIFICATION_CODE_MATCHES,
+  VERIFICATION_CODE_MISMATCH,
   USER_EXISTS_BY_USERNAME,
   USER_DNE_BY_USERNAME
 } from '../../src/actionTypes'
@@ -57,14 +57,14 @@ describe('fieldAvailabilityReducer', () => {
     expect(newState.verificationCodeSent).toEqual(false)
   })
 
-  it(`handles action ${EMAIL_VERIFIED}`, () => {
-    const newState = fieldAvailabilityReducer(undefined, { type: EMAIL_VERIFIED })
-    expect(newState.emailVerified).toEqual(true)
+  it(`handles action ${VERIFICATION_CODE_MATCHES}`, () => {
+    const newState = fieldAvailabilityReducer(undefined, { type: VERIFICATION_CODE_MATCHES })
+    expect(newState.verificationCodeMatches).toEqual(true)
   })
 
-  it(`handles action ${EMAIL_NOT_VERIFIED}`, () => {
-    const newState = fieldAvailabilityReducer(undefined, { type: EMAIL_NOT_VERIFIED })
-    expect(newState.emailVerified).toEqual(false)
+  it(`handles action ${VERIFICATION_CODE_MISMATCH}`, () => {
+    const newState = fieldAvailabilityReducer(undefined, { type: VERIFICATION_CODE_MISMATCH })
+    expect(newState.verificationCodeMatches).toEqual(false)
   })
 
   it(`handles action ${USER_EXISTS_BY_USERNAME}`, () => {

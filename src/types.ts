@@ -4,6 +4,7 @@ export interface FieldAvailabilityState {
   userExistsByEmail: String | undefined
   emailExists: String | undefined
   verificationCodeSent: Boolean | undefined
+  verificationCodeMatches: Boolean | undefined
   emailVerified: Boolean | undefined
   userExistsByUsername: String | undefined
 }
@@ -14,10 +15,11 @@ export type FieldAvailabilityReducer = (
 ) => FieldAvailabilityState
 
 export interface FieldCheckState {
-  checkingUserExistsByEmail: false
-  checkingEmailExists: false
-  sendingVerificationCode: false
-  checkingUserExistsByUsername: false
+  checkingUserExistsByEmail: boolean
+  checkingEmailExists: boolean
+  sendingVerificationCode: boolean
+  checkingVerificationCode: boolean
+  checkingUserExistsByUsername: boolean
 }
 
 export type FieldCheckReducer = (state: FieldCheckState, action: Action) => FieldCheckState
