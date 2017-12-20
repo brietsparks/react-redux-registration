@@ -1,4 +1,5 @@
 import {
+  registrationCheckError,
   checkUserExistsByEmail,
   userExistsByEmail,
   userDoesNotExistByEmail,
@@ -17,6 +18,7 @@ import {
 } from '../src/actionCreators'
 
 import {
+  REGISTRATION_CHECK_ERROR,
   CHECK_USER_EXISTS_BY_EMAIL,
   USER_EXISTS_BY_EMAIL,
   USER_DNE_BY_EMAIL,
@@ -33,6 +35,18 @@ import {
   USER_EXISTS_BY_USERNAME,
   USER_DNE_BY_USERNAME
 } from '../src/actionTypes'
+
+describe('registrationCheckError', () => {
+  it(`returns an action of type ${REGISTRATION_CHECK_ERROR}`, () => {
+    const action = registrationCheckError('SOME_TYPE', { msg: 'err' })
+    expect(action.type).toEqual(REGISTRATION_CHECK_ERROR)
+  })
+
+  it('returns an action with the onType and error arg as paylaod', () => {
+    const action = registrationCheckError('SOME_TYPE', { msg: 'err' })
+    expect(action.payload).toEqual({ onType: 'SOME_TYPE', error: { msg: 'err' } })
+  })
+})
 
 describe('checkUserExistsByEmail', () => {
   it(`returns an action of type ${CHECK_USER_EXISTS_BY_EMAIL}`, () => {

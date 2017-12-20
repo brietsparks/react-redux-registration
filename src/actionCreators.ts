@@ -1,5 +1,6 @@
 import { Action } from './types'
 import {
+  REGISTRATION_CHECK_ERROR,
   CHECK_USER_EXISTS_BY_EMAIL,
   USER_EXISTS_BY_EMAIL,
   USER_DNE_BY_EMAIL,
@@ -16,6 +17,11 @@ import {
   USER_EXISTS_BY_USERNAME,
   USER_DNE_BY_USERNAME
 } from './actionTypes'
+
+export const registrationCheckError = (onType: string, error: any): Action => ({
+  type: REGISTRATION_CHECK_ERROR,
+  payload: { onType, error }
+})
 
 export const checkUserExistsByEmail = (email: string): Action => ({
   type: CHECK_USER_EXISTS_BY_EMAIL,
