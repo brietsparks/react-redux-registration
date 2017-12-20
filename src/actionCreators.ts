@@ -31,25 +31,25 @@ export const checkEmailExists = (email: string): Action => ({
 export const emailExists = (): Action => ({ type: EMAIL_EXISTS })
 export const emailDoesNotExist = (): Action => ({ type: EMAIL_DNE })
 
-export const sendVerificationCode: action = (email: string) => ({
+export const sendVerificationCode = (email: string): Action => ({
   type: SEND_VERIFICATION_CODE,
   payload: email
 })
 export const verificationCodeSent = (): Action => ({ type: VERIFICATION_CODE_SENT })
 export const verificationCodeNotSent = (): Action => ({ type: VERIFICATION_CODE_NOT_SENT })
 
-export const checkVerificationCode = (email: string, verificationCode: string): action => {
+export const checkVerificationCode = (email: string, verificationCode: string): Action => {
   return {
     type: CHECK_VERIFICATION_CODE,
     payload: { email, verificationCode }
   }
 }
-export const verificationCodeMatches = (): action => ({ type: VERIFICATION_CODE_MATCHES })
-export const verificationCodeMismatch = (): action => ({ type: VERIFICATION_CODE_MISMATCH })
+export const verificationCodeMatches = (): Action => ({ type: VERIFICATION_CODE_MATCHES })
+export const verificationCodeMismatch = (): Action => ({ type: VERIFICATION_CODE_MISMATCH })
 
-export const checkUserExistsByUsername = (username: string): action => ({
+export const checkUserExistsByUsername = (username: string): Action => ({
   type: CHECK_USER_EXISTS_BY_USERNAME,
   payload: username
 })
-export const userExistsByUsername = (): action => ({ type: USER_EXISTS_BY_USERNAME })
-export const userDoesNotExistsByUsername = (): action => ({ type: USER_DNE_BY_USERNAME })
+export const userExistsByUsername = (): Action => ({ type: USER_EXISTS_BY_USERNAME })
+export const userDoesNotExistsByUsername = (): Action => ({ type: USER_DNE_BY_USERNAME })
