@@ -6,12 +6,11 @@ export interface RegistrationState {
 }
 
 export interface FieldAvailabilityState {
-  userExistsByEmail: String | undefined
-  emailExists: String | undefined
+  userExistsByEmail: Boolean | undefined
+  emailExists: Boolean | undefined
   verificationCodeSendOk: Boolean | undefined
   verificationCodeMatches: Boolean | undefined
-  emailVerified: Boolean | undefined
-  userExistsByUsername: String | undefined
+  userExistsByUsername: Boolean | undefined
 }
 
 export type FieldAvailabilityReducer = (
@@ -20,11 +19,11 @@ export type FieldAvailabilityReducer = (
 ) => FieldAvailabilityState
 
 export interface FieldCheckState {
-  checkingUserExistsByEmail: boolean
-  checkingEmailExists: boolean
-  sendingVerificationCode: boolean
-  checkingVerificationCode: boolean
-  checkingUserExistsByUsername: boolean
+  checkingUserExistsByEmail: Boolean
+  checkingEmailExists: Boolean
+  sendingVerificationCode: Boolean
+  checkingVerificationCode: Boolean
+  checkingUserExistsByUsername: Boolean
 }
 
 export type FieldCheckReducer = (state: FieldCheckState, action: Action) => FieldCheckState
@@ -32,5 +31,7 @@ export type FieldCheckReducer = (state: FieldCheckState, action: Action) => Fiel
 export type Middleware = (store: any) => (next: any) => (action: any) => any
 
 export interface SelectorsArgs {
-  registrationSelector: (state: any) => RegistrationState
+  registrationSelector: RegistrationSelector
 }
+
+export type RegistrationSelector = (state: any) => RegistrationState
