@@ -4,7 +4,7 @@ import {
   USER_DNE_BY_EMAIL,
   EMAIL_EXISTS,
   EMAIL_DNE,
-  VERIFICATION_CODE_SENT,
+  VERIFICATION_CODE_SEND_OK,
   VERIFICATION_CODE_NOT_SENT,
   VERIFICATION_CODE_MATCHES,
   VERIFICATION_CODE_MISMATCH,
@@ -47,14 +47,14 @@ describe('fieldAvailabilityReducer', () => {
     expect(newState.emailExists).toEqual(false)
   })
 
-  it(`handles action ${VERIFICATION_CODE_SENT}`, () => {
-    const newState = fieldAvailabilityReducer(undefined, { type: VERIFICATION_CODE_SENT })
-    expect(newState.verificationCodeSent).toEqual(true)
+  it(`handles action ${VERIFICATION_CODE_SEND_OK}`, () => {
+    const newState = fieldAvailabilityReducer(undefined, { type: VERIFICATION_CODE_SEND_OK })
+    expect(newState.verificationCodeSendOk).toEqual(true)
   })
 
   it(`handles action ${VERIFICATION_CODE_NOT_SENT}`, () => {
     const newState = fieldAvailabilityReducer(undefined, { type: VERIFICATION_CODE_NOT_SENT })
-    expect(newState.verificationCodeSent).toEqual(false)
+    expect(newState.verificationCodeSendOk).toEqual(false)
   })
 
   it(`handles action ${VERIFICATION_CODE_MATCHES}`, () => {

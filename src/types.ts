@@ -3,7 +3,7 @@ export type Action = { type: string; payload?: any }
 export interface FieldAvailabilityState {
   userExistsByEmail: String | undefined
   emailExists: String | undefined
-  verificationCodeSent: Boolean | undefined
+  verificationCodeSendOk: Boolean | undefined
   verificationCodeMatches: Boolean | undefined
   emailVerified: Boolean | undefined
   userExistsByUsername: String | undefined

@@ -8,7 +8,7 @@ import {
   EMAIL_EXISTS,
   EMAIL_DNE,
   SEND_VERIFICATION_CODE,
-  VERIFICATION_CODE_SENT,
+  VERIFICATION_CODE_SEND_OK,
   VERIFICATION_CODE_NOT_SENT,
   CHECK_VERIFICATION_CODE,
   VERIFICATION_CODE_MATCHES,
@@ -64,10 +64,10 @@ describe('fieldCheckReduce', () => {
     expect(newState.sendingVerificationCode).toEqual(true)
   })
 
-  it(`handles action ${VERIFICATION_CODE_SENT}`, () => {
+  it(`handles action ${VERIFICATION_CODE_SEND_OK}`, () => {
     const newState = fieldCheckReducer(
       { sendingVerificationCode: true },
-      { type: VERIFICATION_CODE_SENT }
+      { type: VERIFICATION_CODE_SEND_OK }
     )
     expect(newState.sendingVerificationCode).toEqual(false)
   })

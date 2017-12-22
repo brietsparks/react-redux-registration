@@ -8,7 +8,7 @@ import {
   EMAIL_EXISTS,
   EMAIL_DNE,
   SEND_VERIFICATION_CODE,
-  VERIFICATION_CODE_SENT,
+  VERIFICATION_CODE_SEND_OK,
   VERIFICATION_CODE_NOT_SENT,
   CHECK_VERIFICATION_CODE,
   VERIFICATION_CODE_MATCHES,
@@ -41,7 +41,7 @@ export const sendVerificationCode = (email: string): Action => ({
   type: SEND_VERIFICATION_CODE,
   payload: email
 })
-export const verificationCodeSent = (): Action => ({ type: VERIFICATION_CODE_SENT })
+export const verificationCodeSendOk = (): Action => ({ type: VERIFICATION_CODE_SEND_OK })
 export const verificationCodeNotSent = (): Action => ({ type: VERIFICATION_CODE_NOT_SENT })
 
 export const checkVerificationCode = (email: string, verificationCode: string): Action => {

@@ -7,7 +7,7 @@ import {
   emailExists,
   emailDoesNotExist,
   sendVerificationCode,
-  verificationCodeSent,
+  verificationCodeSendOk,
   verificationCodeNotSent,
   checkVerificationCode,
   verificationCodeMatches,
@@ -26,7 +26,7 @@ import {
   EMAIL_EXISTS,
   EMAIL_DNE,
   SEND_VERIFICATION_CODE,
-  VERIFICATION_CODE_SENT,
+  VERIFICATION_CODE_SEND_OK,
   VERIFICATION_CODE_NOT_SENT,
   CHECK_VERIFICATION_CODE,
   VERIFICATION_CODE_MATCHES,
@@ -112,10 +112,10 @@ describe('sendVerificationCode', () => {
   })
 })
 
-describe('verificationCodeSent', () => {
-  it(`returns an action of type ${VERIFICATION_CODE_SENT}`, () => {
-    const action = verificationCodeSent()
-    expect(action.type).toEqual(VERIFICATION_CODE_SENT)
+describe('verificationCodeSendOk', () => {
+  it(`returns an action of type ${VERIFICATION_CODE_SEND_OK}`, () => {
+    const action = verificationCodeSendOk()
+    expect(action.type).toEqual(VERIFICATION_CODE_SEND_OK)
   })
 })
 

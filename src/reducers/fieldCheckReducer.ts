@@ -8,7 +8,7 @@ import {
   EMAIL_EXISTS,
   EMAIL_DNE,
   SEND_VERIFICATION_CODE,
-  VERIFICATION_CODE_SENT,
+  VERIFICATION_CODE_SEND_OK,
   VERIFICATION_CODE_NOT_SENT,
   CHECK_VERIFICATION_CODE,
   VERIFICATION_CODE_MATCHES,
@@ -47,7 +47,7 @@ export const fieldCheckReducer: FieldCheckReducer = (
 
     case SEND_VERIFICATION_CODE:
       return Object.assign({}, state, { sendingVerificationCode: true })
-    case VERIFICATION_CODE_SENT:
+    case VERIFICATION_CODE_SEND_OK:
       return Object.assign({}, state, { sendingVerificationCode: false })
     case VERIFICATION_CODE_NOT_SENT:
       return Object.assign({}, state, { sendingVerificationCode: false })

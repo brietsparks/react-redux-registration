@@ -4,7 +4,7 @@ import {
   USER_DNE_BY_EMAIL,
   EMAIL_EXISTS,
   EMAIL_DNE,
-  VERIFICATION_CODE_SENT,
+  VERIFICATION_CODE_SEND_OK,
   VERIFICATION_CODE_NOT_SENT,
   VERIFICATION_CODE_MATCHES,
   VERIFICATION_CODE_MISMATCH,
@@ -15,7 +15,7 @@ import {
 export const defaultState: FieldAvailabilityState = {
   userExistsByEmail: undefined,
   emailExists: undefined,
-  verificationCodeSent: undefined,
+  verificationCodeSendOk: undefined,
   verificationCodeMatches: undefined,
   emailVerified: undefined,
   userExistsByUsername: undefined
@@ -36,10 +36,10 @@ export const fieldAvailabilityReducer: FieldAvailabilityReducer = (
     case EMAIL_DNE:
       return Object.assign({}, state, { emailExists: false })
 
-    case VERIFICATION_CODE_SENT:
-      return Object.assign({}, state, { verificationCodeSent: true })
+    case VERIFICATION_CODE_SEND_OK:
+      return Object.assign({}, state, { verificationCodeSendOk: true })
     case VERIFICATION_CODE_NOT_SENT:
-      return Object.assign({}, state, { verificationCodeSent: false })
+      return Object.assign({}, state, { verificationCodeSendOk: false })
 
     case VERIFICATION_CODE_MATCHES:
       return Object.assign({}, state, { verificationCodeMatches: true })

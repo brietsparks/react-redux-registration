@@ -1,7 +1,7 @@
 import { Middleware } from '../types'
 import { SEND_VERIFICATION_CODE } from '../actionTypes'
 import {
-  verificationCodeSent,
+  verificationCodeSendOk,
   verificationCodeNotSent,
   registrationCheckError
 } from '../actionCreators'
@@ -17,7 +17,7 @@ export const sendVerificationCode = (
       sendVerificationCode(email)
         .then(result => {
           if (result === true) {
-            dispatch(verificationCodeSent())
+            dispatch(verificationCodeSendOk())
           }
 
           if (result === false) {

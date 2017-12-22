@@ -1,7 +1,7 @@
 import sendVerificationCode from '../../src/middleware/sendVerificationCode'
 import {
   SEND_VERIFICATION_CODE,
-  VERIFICATION_CODE_SENT,
+  VERIFICATION_CODE_SEND_OK,
   VERIFICATION_CODE_NOT_SENT,
   REGISTRATION_CHECK_ERROR
 } from '../../src/actionTypes'
@@ -24,13 +24,13 @@ describe('checkEmailExists', () => {
       expect(check.mock.calls.length).toBe(1)
     })
 
-    it(`dispatches ${VERIFICATION_CODE_SENT} if the user-provided function resolves to true`, async () => {
+    it(`dispatches ${VERIFICATION_CODE_SEND_OK} if the user-provided function resolves to true`, async () => {
       const check = jest.fn(email => Promise.resolve(true))
       const middleware = sendVerificationCode(check)
       middleware(store)(next)({ type: SEND_VERIFICATION_CODE, payload: 'a@a.a' })
 
       await flushPromises()
-      expect(store.dispatch).toBeCalledWith({ type: VERIFICATION_CODE_SENT })
+      expect(store.dispatch).toBeCalledWith({ type: VERIFICATION_CODE_SEND_OK })
     })
 
     it(`dispatches ${VERIFICATION_CODE_NOT_SENT} if the user-provided function resolves to false`, async () => {
