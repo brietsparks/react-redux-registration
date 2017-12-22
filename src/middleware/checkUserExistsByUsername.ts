@@ -10,10 +10,10 @@ export const checkUserExistsByUsername = (
   checkUserExistsByUsername: (email: string) => Promise<Boolean>
 ): Middleware => {
   return (store: any) => (next: any) => (action: any) => {
-    const { dispatch } = store
-    const email = action.payload
-
     if (action.type === CHECK_USER_EXISTS_BY_USERNAME) {
+      const { dispatch } = store
+      const email = action.payload
+
       checkUserExistsByUsername(email)
         .then(result => {
           if (result === true) {

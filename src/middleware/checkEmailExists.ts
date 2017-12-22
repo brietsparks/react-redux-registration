@@ -11,10 +11,10 @@ export const checkEmailExists = (
   checkEmailExists: (email: string) => Promise<Boolean>
 ): Middleware => {
   return (store: any) => (next: any) => (action: any) => {
-    const { dispatch } = store
-    const email = action.payload
-
     if (action.type === CHECK_EMAIL_EXISTS) {
+      const { dispatch } = store
+      const email = action.payload
+
       checkEmailExists(email)
         .then(result => {
           if (result === true) {

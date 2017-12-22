@@ -10,10 +10,10 @@ export const checkVerificationCode = (
   checkVerificationCode: (email: string) => Promise<Boolean>
 ): Middleware => {
   return (store: any) => (next: any) => (action: any) => {
-    const { dispatch } = store
-    const { email, verificationCode } = action.payload
-
     if (action.type === CHECK_VERIFICATION_CODE) {
+      const { dispatch } = store
+      const { email, verificationCode } = action.payload
+
       checkVerificationCode(email, verificationCode)
         .then(result => {
           if (result === true) {
