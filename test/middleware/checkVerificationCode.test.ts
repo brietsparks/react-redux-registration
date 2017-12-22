@@ -28,7 +28,7 @@ describe('checkEmailExists', () => {
     })
 
     it(`dispatches ${VERIFICATION_CODE_MATCHES} if the user-provided function resolves to true`, async () => {
-      const check = jest.fn(email => Promise.resolve(true))
+      const check = jest.fn((email, verificationCode) => Promise.resolve(true))
       const middleware = checkVerificationCode(check)
       middleware(store)(next)({
         type: CHECK_VERIFICATION_CODE,

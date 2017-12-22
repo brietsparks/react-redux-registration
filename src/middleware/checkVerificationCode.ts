@@ -7,7 +7,7 @@ import {
 } from '../actionCreators'
 
 export const checkVerificationCode = (
-  checkVerificationCode: (email: string) => Promise<Boolean>
+  checkVerificationCode: (email: string, verificationCode: string) => Promise<Boolean>
 ): Middleware => {
   return (store: any) => (next: any) => (action: any) => {
     if (action.type === CHECK_VERIFICATION_CODE) {
