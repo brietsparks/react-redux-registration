@@ -1,5 +1,10 @@
 export type Action = { type: string; payload?: any }
 
+export interface RegistrationState {
+  fieldAvailability: FieldAvailabilityState
+  fieldCheck: FieldCheckState
+}
+
 export interface FieldAvailabilityState {
   userExistsByEmail: String | undefined
   emailExists: String | undefined
@@ -25,3 +30,7 @@ export interface FieldCheckState {
 export type FieldCheckReducer = (state: FieldCheckState, action: Action) => FieldCheckState
 
 export type Middleware = (store: any) => (next: any) => (action: any) => any
+
+export interface SelectorsArgs {
+  registrationSelector: (state: any) => RegistrationState
+}
