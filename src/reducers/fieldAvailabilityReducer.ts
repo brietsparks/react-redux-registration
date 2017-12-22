@@ -17,7 +17,6 @@ export const defaultState: FieldAvailabilityState = {
   emailExists: undefined,
   verificationCodeSendOk: undefined,
   verificationCodeMatches: undefined,
-  emailVerified: undefined,
   userExistsByUsername: undefined
 }
 
