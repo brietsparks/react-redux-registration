@@ -11,10 +11,10 @@ export const checkVerificationCode = (
 ): Middleware => {
   return (store: any) => (next: any) => (action: any) => {
     const { dispatch } = store
-    const email = action.payload
+    const { email, verificationCode } = action.payload
 
     if (action.type === CHECK_VERIFICATION_CODE) {
-      checkVerificationCode(email)
+      checkVerificationCode(email, verificationCode)
         .then(result => {
           if (result === true) {
             dispatch(verificationCodeMatches())
