@@ -104,5 +104,11 @@
     "typedoc": "^0.9.0",
     "typescript": "^2.3.4",
     "validate-commit-msg": "^2.12.2"
+  },
+  "dependencies": {
+    "@types/react": "^16.0.31",
+    "@types/react-redux": "^5.0.14",
+    "react": "^16.2.0",
+    "react-redux": "^5.0.6"
   }
 }
