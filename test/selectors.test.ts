@@ -1,6 +1,6 @@
-import { getFieldAvailability } from '../src/Selectors'
+import { getFieldAvailability } from '../src/selectors'
 
-describe('Selectors', () => {
+describe('selectors', () => {
   let state
 
   let registrationSelector = state => state.registration
@@ -16,6 +16,4 @@ describe('Selectors', () => {
       expect(getFieldAvailability(registrationSelector)(state)).toEqual({ a: 1 })
     })
   })
-
-  describe('')
 })
