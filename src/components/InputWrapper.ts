@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { RegistrationSelector } from '../types'
-import { getStep, fieldIsActive, defaultRegistrationSelector } from '../Selectors'
+import { getStep, fieldIsActive, defaultRegistrationSelector } from '../selectors'
 
 export interface InputWrapperProps {
   asRenderCallback: Boolean
