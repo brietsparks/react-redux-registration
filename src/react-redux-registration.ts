@@ -14,3 +14,4 @@ import * as stepNames from './stepNames'
 export { stepNames }
 
 export { default as InputWrapper } from './components/InputWrapper'
+export { default as ActionWrapper } from './components/ActionWrapper'

@@ -10,6 +10,7 @@ export interface InputWrapperProps {
   registrationSelector: RegistrationSelector
   currentStep: String
   isActive: Boolean
+  children?: any
 }
 
 class InputWrapper extends React.Component<InputWrapperProps> {
