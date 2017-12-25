@@ -2,9 +2,15 @@ import {
   defaultRegistrationSelector,
   fieldIsActive,
   getFieldAvailability,
-  getStep
+  getStep,
+  getActionCreator
 } from '../src/selectors'
 import * as steps from '../src/stepNames'
+import {
+  checkUserExistsByEmail,
+  checkVerificationCode,
+  checkUserExistsByUsername
+} from '../src/actionCreators'
 
 let state
 let registrationSelector = state => state.registration
@@ -145,21 +151,3 @@ describe('getStep', () => {
     expect(getStep(registrationSelector)(state)).toEqual(steps.PROVIDE_USERNAME)
   })
 })
-
-// describe('selectors', () => {
-//   let state
-//
-//   let registrationSelector = state => state.registration
-//
-//   describe('getFieldAvailability', () => {
-//     it('returns the field availability state given a registration selector and global state', () => {
-//       state = {
-//         registration: {
-//           fieldAvailability: { a: 1 }
-//         }
-//       }
-//
-//       expect(getFieldAvailability(registrationSelector)(state)).toEqual({ a: 1 })
-//     })
-//   })
-// })

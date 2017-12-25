@@ -6,12 +6,17 @@ import {
 } from './types'
 import * as steps from './stepNames'
 import { defaultState } from './reducers/fieldAvailabilityReducer'
+import {
+  checkUserExistsByEmail,
+  checkVerificationCode,
+  checkUserExistsByUsername
+} from './actionCreators'
 
-export const defaultRegistrationSelector = (state: any) => {
+export const defaultRegistrationSelector = (state: any): RegistrationState => {
   return state.registration
 }
 
-export const fieldIsActive = (field: String, step: String) => {
+export const fieldIsActive = (field: String, step: String): Boolean => {
   if (field === 'email' && step === steps.PROVIDE_EMAIL) {
     return true
   }
@@ -27,11 +32,13 @@ export const fieldIsActive = (field: String, step: String) => {
   return false
 }
 
-export const getFieldAvailability = (r: RegistrationSelector) => (state: any) => {
+export const getFieldAvailability = (r: RegistrationSelector) => (
+  state: any
+): FieldAvailabilityState => {
   return r(state).fieldAvailability
 }
 
-export const getStep = (r: RegistrationSelector) => (state: any) => {
+export const getStep = (r: RegistrationSelector) => (state: any): String => {
   const current = getFieldAvailability(r)(state)
 
   if (
@@ -105,6 +112,8 @@ export const getStep = (r: RegistrationSelector) => (state: any) => {
   ) {
     return steps.PROVIDE_USERNAME
   }
+
+  return steps.UNDEFINED_STEP
 }
 
 function stateMatches(currentState: FieldAvailabilityState, evalState: FieldAvailabilityState) {
