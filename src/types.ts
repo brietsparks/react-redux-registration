@@ -35,3 +35,7 @@ export interface SelectorsArgs {
 }
 
 export type RegistrationSelector = (state: any) => RegistrationState
+
+export interface Options {
+  withUsername: Boolean
+}
