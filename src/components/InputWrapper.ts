@@ -2,12 +2,16 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { RegistrationSelector } from '../types'
-import { getStep, fieldIsActive, defaultRegistrationSelector } from '../selectors'
+import {
+  // getStep,
+  fieldIsActive,
+  defaultRegistrationSelector
+} from '../selectors'
 
 export interface InputWrapperProps {
   asRenderCallback: Boolean
+  getStep: (state: any) => String
   field: String
-  registrationSelector: RegistrationSelector
   currentStep: String
   isActive: Boolean
   children?: any
@@ -26,9 +30,9 @@ class InputWrapper extends React.Component<InputWrapperProps> {
 }
 
 const mapStateToProps = (state: any, ownProps: InputWrapperProps): Partial<InputWrapperProps> => {
-  const { field } = ownProps
+  const { field, getStep } = ownProps
 
-  const currentStep = getStep(ownProps.registrationSelector || defaultRegistrationSelector)(state)
+  const currentStep = getStep(state)
 
   return {
     currentStep,
