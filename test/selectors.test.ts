@@ -4,7 +4,8 @@ import {
   getFieldAvailability,
   emailLockedIn,
   getStep,
-  getActionCreator
+  getActionCreator,
+  createSelectors
 } from '../src/selectors'
 import * as steps from '../src/stepNames'
 import {
@@ -266,5 +267,13 @@ describe('fieldIsActive', () => {
   it('returns false for other combinations', () => {
     expect(fieldIsActive('email', steps.USER_EXISTS_BY_USERNAME)).toEqual(false)
     expect(fieldIsActive('foo', steps.USER_EXISTS_BY_USERNAME)).toEqual(false)
+  })
+})
+
+describe('createSelectors', () => {
+  it('returns getStep', () => {
+    const { getStep } = createSelectors(registrationSelector)
+
+    expect(getStep).isPrototypeOf(String)
   })
 })

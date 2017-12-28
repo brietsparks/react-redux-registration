@@ -63,11 +63,9 @@ export const getStep = (
     if (options.withUsername && !usernameLockedIn(r)(s)) {
       return steps.PROVIDE_USERNAME
     }
-
-    return steps.CHECKS_COMPLETE
   }
 
-  return steps.UNDEFINED_STEP
+  return steps.CHECKS_COMPLETE
 }
 
 export const fieldIsActive = (field: String, step: String): Boolean => {
@@ -86,7 +84,7 @@ export const fieldIsActive = (field: String, step: String): Boolean => {
   return false
 }
 
-export default (
+export const createSelectors = (
   r: RegistrationSelector = defaultRegistrationSelector,
   options: Options = defaultOptions
 ) => {
@@ -94,3 +92,5 @@ export default (
     getStep: getStep(r, options)
   }
 }
+
+export default createSelectors
